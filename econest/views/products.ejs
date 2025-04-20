@@ -16,7 +16,7 @@
           <!-- Product 1 -->
           <% products.forEach(product=> {%>
             <div class="product-card">
-              <img src="images/home2.jpeg" alt="sustainable Furniture">
+              <img src="/images/<%= product.imageURL %>" alt="sustainable Furniture">
               <div class="product-details">
                 <h2>
                   <%= product.name %>
@@ -30,10 +30,10 @@
                 <div class="price-cart">
                   <span class="price">₹<%= product.price %></span>
                   <form action="/add-to-cart/<%= product.id %>" method="POST">
-                    <button type="submit" class="add-btn">Add To Cart</button>
+                    <button class="add-btn">Add To Cart</button>
                   </form>
 
-                  <a href="/product/<%= product.id %>">Details</a>
+                  <a href="/product/<%= product.id %>" style="text-decoration: none; color: #2f4f4f;">Details</a>
                 </div>
               </div>
             </div>
@@ -153,6 +153,9 @@
 
         </div>
       </main>
+      <!-- NOTIFICATION -->
+      <div id="toast" class="toast hidden">🛒 Your product has been added to the cart</div>
+
       <%- include('partials/footer') %>
   </body>
 
@@ -161,6 +164,28 @@
       const navLinks = document.getElementById('nav-links');
       navLinks.classList.toggle('show');
     }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.remove('hidden');
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 400);
+      }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const addButtons = document.querySelectorAll('.add-btn'); // ✅ Fix here
+      addButtons.forEach(button => {
+        button.addEventListener('click', showToast); // ✅ Event listener now works for all buttons
+      });
+    });
+
+
   </script>
 
   </html>

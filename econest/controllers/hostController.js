@@ -2,6 +2,7 @@ const Product = require('../model/product');
 
 exports.getAddProduct = (req, res, next) => {
   res.render('host/addProduct', {
+    isLoggedIn: req.isLoggedIn,
     pageTitle: 'Add Product',
     cssPage: '/css/addProductStyle.css',
     // isLoggedIn: req.isLoggedIn,
@@ -23,15 +24,11 @@ exports.postAddProduct = (req, res, next) => {
   });
 
   product.save().then(() => {
-    res.send(`
-      <h1>Product Added ;Successfully</h1>
-      <a href="/">Go to Home</a>
-    `);
+    res.render('host/Added', {
+      isLoggedIn: req.isLoggedIn,
+    });
   }).catch(err => {
-    res.send(`
-      <h1>Error Adding Product</h1>
-      <a href="host/add-product">Try Again</a>
-   `);
+    console.log('err adding product', err);
   });
 };
 
@@ -40,8 +37,17 @@ exports.getProductList = (req, res, next) => {
   Product.find().then(products => {
     res.render('host/productList', {
       products: products,
+      isLoggedIn: req.isLoggedIn,
     });
   }).catch(err => {
     console.log(err);
   })
+}
+
+exports.postDeleteProduct = (req, res, next) => {
+  const productId = req.params.productId;
+
+  Product.findByIdAndDelete(productId).then(() => {
+    res.redirect('/host/product-lists');
+  });
 }

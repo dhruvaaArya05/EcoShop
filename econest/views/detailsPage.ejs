@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .add-btn {
+      background-color: #1f3523;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +29,7 @@
     <!-- main body -->
     <main class="product-container">
       <div class="product-image">
-        <img src="/images/home2.jpeg" alt="Recycled Tote Bag">
+        <img src="/images/<%= product.imageURL %>" alt="Recycled Tote Bag">
       </div>
 
       <div class="product-details">
@@ -36,9 +48,9 @@
 
 
         <div class="cart-controls">
-          <button class="qty-btn">−</button>
+          <button class="qty-btn" onclick="decrease()">−</button>
           <span class="quantity">1</span>
-          <button class="qty-btn">+</button>
+          <button class="qty-btn" onclick="increase()">+</button>
           <!-- < class="add-cart">Add to Cart</> -->
 
           <form action="/add-to-cart/<%= product.id %>" method="POST">
@@ -63,6 +75,22 @@
           const navLinks = document.getElementById('nav-links');
           navLinks.classList.toggle('show');
         }
+
+        let quantity = 1;
+        const quantityEl = document.querySelector('.quantity');
+
+        function increase() {
+          quantity++;
+          quantityEl.innerText = quantity;
+        }
+
+        function decrease() {
+          if (quantity > 1) {
+            quantity--;
+            quantityEl.innerText = quantity;
+          }
+        }
+
       </script>
 </body>
 

@@ -8,7 +8,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const storeRouter = require('./routes/storeRouter');
 const hostRouter = require('./routes/hostRouter');
-// const authRouter = require('./routes/authRouter');
+
 
 const app = express();
 
@@ -21,15 +21,38 @@ const server = http.createServer(app);
 
 app.use(express.urlencoded());
 
-// app.use((req, res, next) => {
-//   console.log(req.url, req.method);
-//   next();
-// });
+app.use((req, res, next) => {
+  console.log(req.url, req.method);
+  next();
+});
+
+app.use((req, res, next) => {
+  req.isLoggedIn = req.get('Cookie') ? req.get('Cookie').split('=')[1] === 'true' : false;
+  next();
+})
 
 // app.use((req, res, next) => {
 //   req.isLoggedIn = req.get('Cookie')?.split('=')[1] || false;
 //   next();
 // });
+
+// app.use(authRouter);
+app.get('/login', (req, res, next) => {
+  res.render('auth/login', {
+    isLoggedIn: req.isLoggedIn,
+  });
+});
+
+app.post('/login', (req, res, next) => {
+  res.cookie("isLoggedIn", true);
+  // req.isLoggedIn = true;
+  res.redirect("/");
+});
+
+app.post('/logout', (req, res, next) => {
+  res.cookie("isLoggedIn", false);
+  res.redirect("/");
+});
 
 // app.use(authRouter);
 app.use(storeRouter);
@@ -41,6 +64,14 @@ app.use(storeRouter);
 //     res.redirect('/login');
 //   }
 // });
+
+app.use('/host', (req, res, next) => {
+  if (req.isLoggedIn) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+})
 
 app.use(hostRouter);
 

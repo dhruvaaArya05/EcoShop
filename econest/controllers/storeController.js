@@ -5,6 +5,7 @@ const Cart = require('../model/cart');
 
 exports.getHome = (req, res, next) => {
   res.render('home', {
+    isLoggedIn: req.isLoggedIn,
     pageTitle: 'Home',
     cssPage: '/css/homeStyle.css',
     // isLoggedIn: req.isLoggedIn,
@@ -21,8 +22,9 @@ exports.getCategories = (req, res, next) => {
 
 //particular products finding Controller
 exports.getFashionableProducts = (req, res, next) => {
-  Product.find({ category: 'Recycle Fashionable' }).then(products => {
+  Product.find({ category: 'Recycled Fashion' }).then(products => {
     res.render('products', {
+      isLoggedIn: req.isLoggedIn,
       products: products,
       pageTitle: 'Fashionable Items',
       cssPage: '/css/ecoliststyle.css',
@@ -36,6 +38,7 @@ exports.getFashionableProducts = (req, res, next) => {
 exports.getHomeLivingProducts = (req, res, next) => {
   Product.find({ category: 'Home and Living' }).then(products => {
     res.render('products', {
+      isLoggedIn: req.isLoggedIn,
       products: products,
       pageTitle: 'Home & Living Items',
       cssPage: '/css/ecoliststyle.css',
@@ -47,8 +50,9 @@ exports.getHomeLivingProducts = (req, res, next) => {
 }
 
 exports.getKitchenProducts = (req, res, next) => {
-  Product.find({ category: 'Kitchen and Dining' }).then(products => {
+  Product.find({ category: 'Kitchen Essentials' }).then(products => {
     res.render('products', {
+      isLoggedIn: req.isLoggedIn,
       products: products,
       pageTitle: 'Kitchen & Dining Items',
       cssPage: '/css/ecoliststyle.css',
@@ -62,6 +66,7 @@ exports.getKitchenProducts = (req, res, next) => {
 exports.getToys = (req, res, next) => {
   Product.find({ category: 'Toys' }).then(products => {
     res.render('products', {
+      isLoggedIn: req.isLoggedIn,
       products: products,
       pageTitle: 'Eco-Friendly Toys',
       cssPage: '/css/ecoliststyle.css',
@@ -73,8 +78,9 @@ exports.getToys = (req, res, next) => {
 }
 
 exports.getStationeryItems = (req, res, next) => {
-  Product.find({ category: 'Stationery Items' }).then(products => {
+  Product.find({ category: 'Stationary Items' }).then(products => {
     res.render('products', {
+      isLoggedIn: req.isLoggedIn,
       products: products,
       pageTitle: 'Stationery Items',
       cssPage: '/css/ecoliststyle.css',
@@ -88,6 +94,7 @@ exports.getStationeryItems = (req, res, next) => {
 exports.getPersonalCareProducts = (req, res, next) => {
   Product.find({ category: 'Personal Care' }).then(products => {
     res.render('products', {
+      isLoggedIn: req.isLoggedIn,
       products: products,
       pageTitle: 'Personal Care Items',
       cssPage: '/css/ecoliststyle.css',
@@ -102,7 +109,8 @@ exports.getPersonalCareProducts = (req, res, next) => {
 exports.getProducts = (req, res, next) => {
   Product.find().then((products) => {
     res.render('products', {
-      pageTitle: 'EcoShop | Kitchen & Dining',
+      isLoggedIn: req.isLoggedIn,
+      pageTitle: 'EcoNest | Kitchen & Dining',
       products: products,
       cssPage: '/css/ecoliststyle.css',
       titleHeading: 'All Products',
@@ -131,6 +139,7 @@ exports.getProductDetails = (req, res, next) => {
     }
 
     res.render('detailsPage', {
+      isLoggedIn: req.isLoggedIn,
       product: product,
     });
 
@@ -138,11 +147,3 @@ exports.getProductDetails = (req, res, next) => {
     console.log('Error fetching product details from DB', err);
   });
 }
-
-//get Impact Controller
-exports.getImpact = (req, res, next) => {
-  res.render('impact', {
-    pageTitle: 'Impact',
-    // isLoggedIn: req.isLoggedIn,
-  });
-};

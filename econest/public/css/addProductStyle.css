@@ -65,7 +65,7 @@
 /* body start */
 body {
 
-  background-image: url('images/back4.avif');
+  background-image: url('/images/back4.avif');
   background-size: cover;
   display: flex;
   justify-content: center;

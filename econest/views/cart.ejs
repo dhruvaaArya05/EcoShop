@@ -13,13 +13,13 @@
 
           <% products.forEach( product=> {%>
             <div class="cart-item">
-              <img src="<%= product.imageURL %>" alt="" />
+              <img src="/images/<%= product.imageURL %>" alt="" />
               <div class="item-info">
                 <div class="item-name">
                   <p>
                     <%= product.name %>
                   </p>
-                  <p>
+                  <p style="font-weight: 500;">
                     <%= product.description %>
                   </p>
                 </div>
@@ -66,13 +66,12 @@
             <p>Subtotal: ₹<%= totalPrice %>
             </p>
             <br>
-            <p>Shipping: ₹10</p>
-            <br>
             <hr>
             <br>
             <p><strong>Total: ₹<%= totalPrice %></strong></p>
             <br>
-            <button class="checkout-btn">Proceed to Checkout</button>
+            <button class="checkout-btn" onclick="fakeRazorpay()">Proceed to Checkout</button>
+            <!-- <p class="razorpay-note">This is a simulated Razorpay flow for</p> -->
           </div>
         </div>
       </div>
@@ -84,6 +83,10 @@
     function toggleMenu() {
       const navLinks = document.getElementById('nav-links');
       navLinks.classList.toggle('show');
+    }
+
+    function fakeRazorpay() {
+      alert("✅ Payment successful!\nYour order has been placed via Razorpay simulation.")
     }
   </script>
 

@@ -31,6 +31,7 @@ exports.getCart = (req, res, next) => {
 
       //render ejs
       res.render('cart', {
+        isLoggedIn: req.isLoggedIn,
         products: cartProducts,
         cssPage: '/css/cartstyle3.css',
         pageTitle: 'Cart',
@@ -54,8 +55,7 @@ exports.postAddToCart = (req, res, next) => {
     id: productId,
   });
   cart.save().then(() => {
-    res.send(`<h1>Item added to cart</h1>
-      <a href="/products">Go to Products</a>`);
+    console.log('added to cart');
   }).catch(err => {
     console.log('err', err);
   });

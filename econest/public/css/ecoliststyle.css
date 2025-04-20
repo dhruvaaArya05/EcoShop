@@ -239,3 +239,28 @@ footer p {
   margin: 0.2em 0.2em 0.2em 0.2em;
   font-size: 0.9em;
 }
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #659a9a;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.hidden {
+  display: none;
+}

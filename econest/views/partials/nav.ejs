@@ -11,12 +11,21 @@
     <!-- Navigation Links -->
     <nav class="nav-links" id="nav-links">
       <a href="/">Home</a>
-      <a href="/products">Products</a>
-      <a href="/cart">Cart</a>
-      <a href="host/add-product">Add Product</a>
-      <a href="host/product-lists">Host List</a>
-      <a href="/signup">Sign Up</a>
-      <a href="/login">Login</a>
+      <% if(isLoggedIn) { %>
+        <a href="/products">Products</a>
+        <a href="/cart">Cart</a>
+        <a href="host/add-product">Add Product</a>
+        <a href="host/product-lists">Host List</a>
+        <% } %>
+
+          <% if(!isLoggedIn) { %>
+            <a href="/login">Login / SignUp</a>
+            <% } else {%>
+              <form action="/logout" method="POST">
+                <button type="submit"
+                  style="background-color: #2f4f4f; color: #ffffff; border: none; font-size: 16px;">Logout</button>
+              </form>
+              <% } %>
     </nav>
   </div>
 </header>
