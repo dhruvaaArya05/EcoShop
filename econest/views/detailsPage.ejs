@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>detail page</title>
+  <link rel="stylesheet" href="/css/detail.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- header section -->
+  <%- include('partials/nav') %>
+    <!-- main body -->
+    <main class="product-container">
+      <div class="product-image">
+        <img src="/images/home2.jpeg" alt="Recycled Tote Bag">
+      </div>
+
+      <div class="product-details">
+        <h1>
+          <%= product.name %>
+        </h1>
+        <p class="price">₹<%= product.price %>
+        </p>
+        <p>
+          <%= product.description %>
+            <p>🌱 Made from 100% biodegradable product</p>
+            <p>♻️ Reusable and compostable</p>
+            <p>👜 Spacious design with reinforced handles</p>
+            <p>🎨 Minimalist print with natural dye</p>
+        </p>
+
+
+        <div class="cart-controls">
+          <button class="qty-btn">−</button>
+          <span class="quantity">1</span>
+          <button class="qty-btn">+</button>
+          <!-- < class="add-cart">Add to Cart</> -->
+
+          <form action="/add-to-cart/<%= product.id %>" method="POST">
+            <button type="submit" class="add-btn">Add To Cart</button>
+          </form>
+
+        </div>
+        <div class="impact-box">
+          <h3><span class="icon">🍃</span> Environmental Impact</h3>
+          <p><strong>Carbon footprint:</strong>
+            <%= product.carbonFootprint %>e <span>(60% less than average)</span>
+          </p>
+          <p><strong> Water saved 💧 :</strong> 1,000 liters</p>
+          <p><strong>Plastic-free packaging</strong></p>
+        </div>
+      </div>
+    </main>
+    <!-- footer section -->
+    <%- include('partials/footer') %>
+      <script>
+        function toggleMenu() {
+          const navLinks = document.getElementById('nav-links');
+          navLinks.classList.toggle('show');
+        }
+      </script>
+</body>
+
+</html>

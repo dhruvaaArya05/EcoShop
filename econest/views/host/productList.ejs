@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Uploads</title>
+  <link rel="stylesheet" href="/css/ecostyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+
+    <!-- Page Title -->
+    <section>
+      <h2>Your uploads</h2>
+      <br>
+    </section>
+
+    <!-- Product Cards -->
+    <section>
+      <% products.forEach(product=> { %>
+        <div class="product-card">
+          <img src="/images/home2.jpeg" alt="Bamboo Plates">
+          <div class="product-details">
+            <h3>
+              <%= product.name %>
+            </h3>
+            <p>
+              <%= product.description %>
+            </p>
+            <p class="price">₹<%= product.price %>
+            </p>
+          </div>
+          <button class="delete">DELETE</button>
+          <button class="add-to-cart-btn">EDIT</button>
+        </div>
+        <% }) %>
+
+          <!-- <div class="product-card">
+        <img src="https://via.placeholder.com/100x100.png?text=Cup" alt="Reusable Coffee Cup">
+        <div class="product-details">
+          <h3>Reusable Coffee Cup</h3>
+          <p>A travel coffee cup crafted from eco-friendly materials.</p>
+          <p class="price">₹18.00</p>
+        </div>
+        <button class="delete">DELETE</button>
+        <button class="add-to-cart-btn">EDIT</button>
+      </div> -->
+
+          <!-- <div class="product-card">
+        <img src="https://via.placeholder.com/100x100.png?text=Napkins" alt="Linen Napkins">
+        <div class="product-details">
+          <h3>Linen Napkins</h3>
+          <p>A set of four linen napkins, perfect for sustainable dining.</p>
+          <p class="price">₹30.00</p>
+        </div>
+        <button class="delete">DELETE</button>
+        <button class="add-to-cart-btn">EDIT</button>
+      </div> -->
+          <!-- 
+      <div class="product-card">
+        <img src="https://via.placeholder.com/100x100.png?text=Spoon" alt="Wooden Serving Spoon">
+        <div class="product-details">
+          <h3>Wooden Serving Spoon</h3>
+          <p>A serving spoon made from sustainably sourced wood.</p>
+          <p class="price">₹15.00</p>
+        </div>
+        <button class="delete">DELETE</button>
+        <button class="add-to-cart-btn">EDIT</button>
+      </div> -->
+    </section>
+
+    <%- include('../partials/footer') %>
+
+</body>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('show');
+  }
+</script>
+
+</html>

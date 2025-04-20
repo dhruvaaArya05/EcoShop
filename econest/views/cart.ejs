@@ -1,0 +1,90 @@
+<%- include('partials/head') %>
+  </head>
+
+  <body>
+    <%- include('partials/nav') %>
+
+      <div class="heading">Shopping Cart</div>
+
+      <div class="cart-container">
+
+        <!-- Cart Items Left Side -->
+        <div class="full-cart">
+
+          <% products.forEach( product=> {%>
+            <div class="cart-item">
+              <img src="<%= product.imageURL %>" alt="" />
+              <div class="item-info">
+                <div class="item-name">
+                  <p>
+                    <%= product.name %>
+                  </p>
+                  <p>
+                    <%= product.description %>
+                  </p>
+                </div>
+                <div class="item-controls">
+                  <p>Carbon Footprint: <%= product.carbonFootprint %>e</p>
+                  <p>Price :₹<%= product.price %>
+                  </p>
+                  <br>
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+
+                <form action="/remove-item/<%= product.id %>" method="POST">
+                  <button type="submit" class="remove-btn">Remove</button>
+                </form>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+
+        <!-- Order Summary Right Side -->
+        <div class="right">
+
+          <div class="carbon-summary">
+            <h3>Order Carbon Summary</h3>
+            <p>
+              Estimated carbon footprint
+              <br>
+              <strong class="c-footprint">
+                <%= totalCarbon %> CO<sub>2</sub>e
+              </strong>
+            </p>
+            <p>
+              Water saved
+              <br>
+              <strong class="c-footprint">1,000 liters</strong>
+            </p>
+          </div>
+
+          <div class="order-summary">
+            <h2>Order Summary</h2>
+            <br>
+            <p>Subtotal: ₹<%= totalPrice %>
+            </p>
+            <br>
+            <p>Shipping: ₹10</p>
+            <br>
+            <hr>
+            <br>
+            <p><strong>Total: ₹<%= totalPrice %></strong></p>
+            <br>
+            <button class="checkout-btn">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+
+      <%- include('partials/footer') %>
+  </body>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+
+  </html>

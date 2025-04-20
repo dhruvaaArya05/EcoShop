@@ -1,0 +1,166 @@
+<%- include('partials/head') %>
+  </head>
+
+  <body>
+    <%- include('partials/nav') %>
+
+      <main class="main">
+        <div class="heading">
+          <h1>
+            <%= titleHeading %>
+          </h1>
+          <p class="subtitle">Explore our range of sustainable products for your <%= titleDescription %> area.</p>
+        </div>
+
+        <div class="product-list">
+          <!-- Product 1 -->
+          <% products.forEach(product=> {%>
+            <div class="product-card">
+              <img src="images/home2.jpeg" alt="sustainable Furniture">
+              <div class="product-details">
+                <h2>
+                  <%= product.name %>
+                </h2>
+                <p>
+                  <%= product.description %>
+                </p>
+                <div class="carbon">
+                  <p>Carbon Footprint: <%= product.carbonFootprint %>e</p>
+                </div>
+                <div class="price-cart">
+                  <span class="price">₹<%= product.price %></span>
+                  <form action="/add-to-cart/<%= product.id %>" method="POST">
+                    <button type="submit" class="add-btn">Add To Cart</button>
+                  </form>
+
+                  <a href="/product/<%= product.id %>">Details</a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+
+              <!-- Product 2 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Reusable Coffee Cup">
+                <div class="product-details">
+                  <h2>Reusable Coffee Cup</h2>
+                  <p>A travel coffee cup crafted from eco-friendly materials.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹18.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Product 3 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Linen Napkins">
+                <div class="product-details">
+                  <h2>Linen Napkins</h2>
+                  <p>A set of four linen napkins, perfect for sustainable dining.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹30.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Product 4 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Wooden Serving Spoon">
+                <div class="product-details">
+                  <h2>Wooden Spoon</h2>
+                  <p>A serving spoon made from sustainably sourced wood.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹15.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- product 5 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Linen Napkins">
+                <div class="product-details">
+                  <h2>Linen Napkins</h2>
+                  <p>A set of four linen napkins, perfect for sustainable dining.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹30.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- produt 6 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Linen Napkins">
+                <div class="product-details">
+                  <h2>Linen Napkins</h2>
+                  <p>A set of four linen napkins, perfect for sustainable dining.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹30.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- product 7 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Linen Napkins">
+                <div class="product-details">
+                  <h2>Linen Napkins</h2>
+                  <p>A set of four linen napkins, perfect for sustainable dining.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹30.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- product 8 -->
+              <!-- <div class="product-card">
+                <img src="https://via.placeholder.com/120" alt="Linen Napkins">
+                <div class="product-details">
+                  <h2>Linen Napkins</h2>
+                  <p>A set of four linen napkins, perfect for sustainable dining.</p>
+                  <div class="carbon">
+                    <p>Carbon Footprint: 0.3 kg CO₂e</p>
+                  </div>
+                  <div class="price-cart">
+                    <span class="price">₹30.00</span>
+                    <button class="add-btn">Add to Cart</button>
+                  </div>
+                </div>
+              </div> -->
+
+        </div>
+      </main>
+      <%- include('partials/footer') %>
+  </body>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+
+  </html>

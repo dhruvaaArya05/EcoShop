@@ -1,0 +1,107 @@
+<%- include('partials/head') %>
+  </head>
+
+  <body>
+    <%- include('partials/nav') %>
+      <!-- video -->
+      <div class="video-container">
+        <video autoplay muted loop>
+          <source src="banner -video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="categories">
+        <h2>Shop by Category</h2>
+        <div class="grid">
+          <div class="card">
+            <img src="images/fashioned.png" alt="Recycled Fashion">
+            <h3>Recycled Fashion</h3>
+            <p>Avg.Carbon Footprint Saved (per product)- 1.2kg </p>
+            <a href="/fashionable"> <button>Explore Products</button></a>
+          </div>
+          <div class="card">
+            <img src="images/home-deco.jpeg" alt="Home & Living">
+            <h3>Home & Living</h3>
+            <p>Avg.Carbon Footprint Saved (per product)- 1.5kg </p>
+            <a href="/home-living"> <button>Explore Products</button></a>
+          </div>
+          <div class="card">
+            <img src="images/1kitchen.jpg" alt="Kitchen & Dining">
+            <h3>Kitchen & Dining</h3>
+            <p>Avg.Carbon Footprint Saved (per product)- 2.1kg </p>
+            <a href="/kitchen-dining"> <button>Explore Products</button></a>
+          </div>
+          <div class="card">
+            <img src="images/toys.jpeg" alt="Eco-Friendly Toys">
+            <h3>Eco-Friendly Toys</h3>
+            <p>Avg.Carbon Footprint Saved (per product)- 0.7kg </p>
+            <a href="/eco-friendly-toys"> <button>Explore Products</button></a>
+          </div>
+          <div class="card">
+            <img src="images/stationary.jpeg" alt="Bamboo Cutlery Set">
+            <h3>Stationery Items</h3>
+            <p>Avg.Carbon Footprint Saved (per product)- 2.5kg </p>
+            <a href="/stationery-items"> <button>Explore Products</button></a>
+          </div>
+          <div class="card">
+            <img src="images/personal-care.jpeg" alt="Bamboo Cutlery Set">
+            <h3>Personal Care</h3>
+            <p>Avg.Carbon Footprint Saved (per product)- 3.7kg </p>
+            <a href="/personal-care"> <button>Explore Products</button></a>
+          </div>
+
+
+        </div>
+        </section>
+
+        <section class="features">
+          <h2>Why Choose EcoNest?</h2>
+          <div class="grid">
+            <div class="feature">
+              <div class="fea-icon"><i class="fa-solid fa-hand-holding-droplet"></i></div>
+              <h3>Committed to sustainable</h3>
+              <p>Committed to sustainable shopping with transparency in environmental impact.</p>
+            </div>
+            <div class="feature">
+              <div class="fea-icon"><i class="fa-solid fa-earth-americas"></i></div>
+              <h3>Reduced Carbon Impact</h3>
+              <p>Each purchases helps mitigute envitonmental degrodation.</p>
+            </div>
+            <div class="feature">
+              <div class="fea-icon"><i class="fa-solid fa-leaf"></i></div>
+              <h3>Support Green Initiatives</h3>
+              <p>Promote a clicular conomy and eco-friendly practices</p>
+            </div>
+            <div class="feature">
+              <div class="fea-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+              <h3>Planet-Positive Choices</h3>
+              <p>Connect people with planet-positive choices by curating sustainable alternatives that reduce waste and
+                promote mindful consumption</p>
+            </div>
+            <div class="feature">
+              <div class="fea-icon"><i class="fa-solid fa-recycle"></i></div>
+              <h3>Everyday Sustainability Made Simple</h3>
+              <p>Promote & inspire eco-conscious lifestyles by making sustainable products easy to find, trust, and
+                afford.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="fea-icon"><i class="fa-solid fa-dove"></i></div>
+              <h3>Sustainable Shopping for All</h3>
+              <p>To make sustainability the standard by offering responsibly sourced and upcycled goods to
+                environmentally
+                aware consumers</p>
+            </div>
+          </div>
+        </section>
+        <%- include('partials/footer') %>
+  </body>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+
+  </html>

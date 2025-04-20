@@ -1,0 +1,241 @@
+/* Reset and base styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f0e6;
+  color: #1f3523;
+  line-height: 1.6;
+}
+
+/* navbar */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F7F7F7;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2e4f4f;
+  padding: 1rem;
+
+}
+
+.logo-img {
+  height: 60px;
+  width: 100%;
+}
+
+
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.burger {
+  display: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive Mode */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #2e4f4f;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+.heading {
+  margin-left: 2.5em;
+}
+
+/* Main Section */
+.main {
+
+  padding: 0 20px;
+  width: 100%;
+}
+
+.main h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #3d3d3d;
+  margin-bottom: 30px;
+}
+
+/* Product Cards */
+.product-list {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  justify-content: space-around;
+  /* align-items: center; */
+  gap: 20px;
+}
+
+.carbon {
+  font-weight: 700;
+}
+
+.product-card {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #1f3523;
+  align-items: center;
+}
+
+/* .cart-button {
+
+} */
+
+.product-card img {
+  width: 15em;
+  height: 15em;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.product-details h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.product-details p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.price-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+  color: #1f3523;
+}
+
+.add-btn {
+  background-color: #1f3523;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #2b4b36;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .product-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-details {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .price-cart {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu a {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline-block;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-right: 4em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: #254d3e;
+  color: #fff;
+  padding: 3em 0;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer h3 {
+  margin-bottom: 0.5em;
+}
+
+footer p {
+  margin: 0.2em 0.2em 0.2em 0.2em;
+  font-size: 0.9em;
+}
