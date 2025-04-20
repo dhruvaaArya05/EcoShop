@@ -42,7 +42,7 @@ app.use(hostRouter);
 const DB_PATH = "mongodb://localhost:27017/EcoShopDb";
 // const DB_PATH = "mongodb+srv://dhruvaa866:dhruvaadbroot@05@completecoding.z7yhero.mongodb.net/econestDb";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 mongoose.connect(DB_PATH).then(() => {
   server.listen(PORT, () => {
     console.log(`server running on address http://localhost:${PORT}`);
