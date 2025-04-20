@@ -22,7 +22,6 @@ exports.getCategories = (req, res, next) => {
 //particular products finding Controller
 exports.getFashionableProducts = (req, res, next) => {
   Product.find({ category: 'Recycle Fashionable' }).then(products => {
-    console.log(products);
     res.render('products', {
       products: products,
       pageTitle: 'Fashionable Items',
@@ -31,13 +30,11 @@ exports.getFashionableProducts = (req, res, next) => {
       titleDescription: 'recycle fashionable',
     });
   }).catch(err => {
-    console.log('err fetching data', err);
   });
 }
 
 exports.getHomeLivingProducts = (req, res, next) => {
   Product.find({ category: 'Home and Living' }).then(products => {
-    console.log(products);
     res.render('products', {
       products: products,
       pageTitle: 'Home & Living Items',
@@ -46,13 +43,11 @@ exports.getHomeLivingProducts = (req, res, next) => {
       titleDescription: 'home and living',
     });
   }).catch(err => {
-    console.log('err fetching data', err);
   });
 }
 
 exports.getKitchenProducts = (req, res, next) => {
   Product.find({ category: 'Kitchen and Dining' }).then(products => {
-    console.log(products);
     res.render('products', {
       products: products,
       pageTitle: 'Kitchen & Dining Items',
@@ -61,13 +56,11 @@ exports.getKitchenProducts = (req, res, next) => {
       titleDescription: 'kitchen and dining',
     });
   }).catch(err => {
-    console.log('err fetching data', err);
   });
 }
 
 exports.getToys = (req, res, next) => {
   Product.find({ category: 'Toys' }).then(products => {
-    console.log(products);
     res.render('products', {
       products: products,
       pageTitle: 'Eco-Friendly Toys',
@@ -76,13 +69,11 @@ exports.getToys = (req, res, next) => {
       titleDescription: 'eco-friendly toys',
     });
   }).catch(err => {
-    console.log('err fetching data', err);
   });
 }
 
 exports.getStationeryItems = (req, res, next) => {
   Product.find({ category: 'Stationery Items' }).then(products => {
-    console.log(products);
     res.render('products', {
       products: products,
       pageTitle: 'Stationery Items',
@@ -91,13 +82,11 @@ exports.getStationeryItems = (req, res, next) => {
       titleDescription: 'stationery items',
     });
   }).catch(err => {
-    console.log('err fetching data', err);
   });
 }
 
 exports.getPersonalCareProducts = (req, res, next) => {
   Product.find({ category: 'Personal Care' }).then(products => {
-    console.log(products);
     res.render('products', {
       products: products,
       pageTitle: 'Personal Care Items',
@@ -106,7 +95,6 @@ exports.getPersonalCareProducts = (req, res, next) => {
       titleDescription: 'personal care items',
     });
   }).catch(err => {
-    console.log('err fetching data', err);
   });
 }
 
@@ -122,7 +110,6 @@ exports.getProducts = (req, res, next) => {
       // isLoggedIn: req.isLoggedIn,
     });
   }).catch(err => {
-    console.log('Error fetching products from DB', err);
     res.send(`
       <h1>Error Fetching Products</h1>
       <a href="/">Go to Home</a>
@@ -134,7 +121,6 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProductDetails = (req, res, next) => {
   const productId = req.params.productId;
-  console.log(productId);
 
   Product.findById(productId).then(product => {
     if (!product) {

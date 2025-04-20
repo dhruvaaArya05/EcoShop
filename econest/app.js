@@ -17,11 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
 
-app.use((req, res, next) => {
-  console.log(req.url, req.method);
-  next();
-});
-
 app.use(express.urlencoded());
 
 // app.use((req, res, next) => {
@@ -49,10 +44,8 @@ const DB_PATH = "mongodb://localhost:27017/EcoShopDb";
 
 const PORT = 3000;
 mongoose.connect(DB_PATH).then(() => {
-  console.log('Connected to Mongodb');
   server.listen(PORT, () => {
     console.log(`server running on address http://localhost:${PORT}`);
   });
 }).catch(err => {
-  console.log('Error while conecting to db', err);
 });
